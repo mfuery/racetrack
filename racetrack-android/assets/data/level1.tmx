@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="30" height="20" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" source="level1.tsx"/>
+ <layer name="Ground" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzFldkOgjAQRUd5cCERl0RcIkZRxDX+/9d5iRDIpHTD1ofzQDLt6Z1paEJEiUMmIAJTx54mL4F378n9j7xFtiWIwcqjt6AH+iBg5zHZYw02BmzBCIxB2OHsB3A0ILXw5hLvCdzA2YFXljfVzN/Fm3n0vpmPex/0vTfPH3n5TPm3Kh+fu8wruj85y5tpenkfVHkvLTM1zWvbZ+7nXMs+6nKXeAclQ6r/aTICzbqKXYs3ovq9qM4mI9SsE61remOq34sZmCtYaNaJ1tnM1jW+/B/DRD/x
+  </data>
+ </layer>
+</map>
