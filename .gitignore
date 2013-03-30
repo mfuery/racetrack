@@ -8,7 +8,6 @@ target/
 obj/
 .gwt/
 gwt-unitCache/
-war/
 gen/
 armeabi/
 armeabi-v7a/
