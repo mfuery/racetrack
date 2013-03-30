@@ -30,3 +30,8 @@ ipch/
 *.userprefs
 *.sdf
 *.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
