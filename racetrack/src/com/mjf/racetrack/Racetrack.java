@@ -5,19 +5,20 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.mjf.racetrack.screens.GameScreen;
 
 public class Racetrack extends Game {
     public static int gameWidth = 800, gameHeight = 600;
     public static boolean debug = true;
 
-    private final Input input = new Input();
+    private final InputHandler inputHandler = new InputHandler();
     private BitmapFont font;
     private SpriteBatch batch;
 
 	@Override
 	public void create() {
 	    Assets.load();
-	    Gdx.input.setInputProcessor(input);
+	    Gdx.input.setInputProcessor(inputHandler);
 	    setScreen(new GameScreen(this));
 
         font = new BitmapFont(Gdx.files.internal("data/arial-15.fnt"), false);

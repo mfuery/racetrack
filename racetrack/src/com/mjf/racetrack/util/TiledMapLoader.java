@@ -60,7 +60,7 @@ public class TiledMapLoader extends TmxMapLoader {
 
 	/**
 	 * Reads a file describing the collision boundaries that should be set
-	 * per-tile and adds static bodies to the boxd world.
+	 * per-tile and adds static bodies to the box2d world.
 	 *
 	 * @param collisionsFile
 	 * @param world
@@ -118,9 +118,9 @@ public class TiledMapLoader extends TmxMapLoader {
 				String start[] = coords[0].split("x");
 				String end[] = coords[1].split("x");
 
-				tmp.add(new LineSegment(Integer.parseInt(start[0]), Integer
-						.parseInt(start[1]), Integer.parseInt(end[0]), Integer
-						.parseInt(end[1])));
+				tmp.add(new LineSegment(Integer.parseInt(start[0]),
+			        Integer.parseInt(start[1]), Integer.parseInt(end[0]),
+			        Integer.parseInt(end[1])));
 			}
 
 			tileCollisionJoints.put(Integer.valueOf(tileNo), tmp);
@@ -129,19 +129,19 @@ public class TiledMapLoader extends TmxMapLoader {
 		ArrayList<LineSegment> collisionLineSegments = new ArrayList<LineSegment>();
 
 		for (int y = 0; y < getHeight(); y++) {
-			for (int x = 0; x < map.width; x++) {
-				int tileType = map.layers.get(0).tiles[(map.height - 1)
-						- y][x];
+			for (int x = 0; x < getWidth(); x++) {
+			    // TODO: fixme
+				int tileType = 0;//map.getLayers().get(0).getObjects().get(((getHeight() - 1) - y) + x);
 
 				for (int n = 0; n < tileCollisionJoints.get(
 						Integer.valueOf(tileType)).size(); n++) {
 					LineSegment lineSeg = tileCollisionJoints.get(
 							Integer.valueOf(tileType)).get(n);
 
-					addOrExtendCollisionLineSegment(x * map.tileWidth
-							+ lineSeg.start().x, y * map.tileHeight
-							- lineSeg.start().y + 32, x * map.tileWidth
-							+ lineSeg.end().x, y * map.tileHeight
+					addOrExtendCollisionLineSegment(x * getTileWidth()
+							+ lineSeg.start().x, y * getTileHeight()
+							- lineSeg.start().y + 32, x * getTileWidth()
+							+ lineSeg.end().x, y * getTileHeight()
 							- lineSeg.end().y + 32, collisionLineSegments);
 				}
 			}
@@ -325,5 +325,4 @@ public class TiledMapLoader extends TmxMapLoader {
 		}
 	}
 
-	private FileHandle packFileDirectory;
 }
